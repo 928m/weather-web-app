@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import axios from 'axios';
 import { cloneDeep } from 'lodash';
 import {
   weatherInfoSetting,
@@ -8,7 +9,7 @@ import {
   loadingStateSetting
 } from '../actions';
 import App from '../components/App';
-import axios from 'axios';
+import appId from '../credential';
 
 const mapStateToProps = (state) => {
   const newState = cloneDeep(state);
@@ -55,10 +56,6 @@ const mapDispatchToProps = (dispatch) => ({
   getLocation() {
     const success = (position) => {
       const { latitude, longitude } = position.coords;
-      const appId = {
-        weather: 'cadf8a77863b7e2c66730091f350ef3e',
-        atmosphere: '6d425357716d696e35346a45486951'
-      };
 
       const weatherApiRequest = axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${appId.weather}`);
       const mustApiRequest = axios.get(`http://openAPI.seoul.go.kr:8088/${appId.atmosphere}/json/ListAvgOfSeoulAirQualityService/1/5/`);
