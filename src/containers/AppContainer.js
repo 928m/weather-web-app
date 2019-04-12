@@ -79,6 +79,7 @@ const mapDispatchToProps = (dispatch) => ({
 
     const error = (err) => {
       console.error(err);
+      dispatch(loadingStateSetting(false));
     };
 
     const options = {
