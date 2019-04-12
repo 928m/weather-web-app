@@ -2,6 +2,8 @@ $background: #699dec;
 $font-basic: #ffffff;
 $font-section: #32568E;
 $section-line: #ffffff;
+$white: #ffffff;
+$black: #000000;
 
 * {
   margin: 0;
@@ -29,6 +31,22 @@ ul {
   background: $background;
   font-size: 20px;
   margin: 0 auto;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  z-index: 10;
+  transform: translateX(-50%);
+  width: 640px;
+  height: 100vh;
+  overflow: hidden;
+  background: $white;
+  color: $black;
 }
 
 section {

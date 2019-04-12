@@ -4,7 +4,8 @@ import {
   weatherInfoSetting,
   cityInfoSetting,
   dateInfoSetting,
-  atmosphereInfoSetting
+  atmosphereInfoSetting,
+  loadingStateSetting
 } from '../actions';
 import App from '../components/App';
 import axios from 'axios';
@@ -48,6 +49,9 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
+  loading(state) {
+    dispatch(loadingStateSetting(state));
+  },
   getLocation() {
     const success = (position) => {
       const { latitude, longitude } = position.coords;
@@ -56,37 +60,33 @@ const mapDispatchToProps = (dispatch) => ({
         atmosphere: '6d425357716d696e35346a45486951'
       };
 
-      axios
-        .get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${appId.weather}`)
+      const weatherApiRequest = axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${appId.weather}`);
+      const mustApiRequest = axios.get(`http://openAPI.seoul.go.kr:8088/${appId.atmosphere}/json/ListAvgOfSeoulAirQualityService/1/5/`);
+
+      Promise
+        .all([weatherApiRequest, mustApiRequest])
         .then((response) => {
-          const { name, weather, main } = response.data;
+          const { name, weather, main } = response[0].data;
+          const atmosphere = response[1].data.ListAvgOfSeoulAirQualityService.row[0];
+          const { NITROGEN, OZONE, PM10, PM25 } = atmosphere;
           const temperature = (main.temp - 273.15).toFixed(2);
           const city = name;
 
+          dispatch(atmosphereInfoSetting(NITROGEN, OZONE, PM10, PM25));
           dispatch(cityInfoSetting(city));
           dispatch(weatherInfoSetting(temperature, weather));
           dispatch(dateInfoSetting(new Date()));
-        })
-        .catch((err) => { console.log(err); });
-
-      axios
-        .get(`http://openAPI.seoul.go.kr:8088/${appId.atmosphere}/json/ListAvgOfSeoulAirQualityService/1/5/`)
-        .then((response) => {
-          const atmosphere = response.data.ListAvgOfSeoulAirQualityService.row[0];
-          const { NITROGEN, OZONE, PM10, PM25 } = atmosphere;
-
-          dispatch(atmosphereInfoSetting(NITROGEN, OZONE, PM10, PM25));
-        })
-        .catch((err) => { console.log(err); });
+          dispatch(loadingStateSetting(false));
+        });
     };
 
     const error = (err) => {
-      console.log(err);
+      console.error(err);
     };
 
     const options = {
       enableHighAccuracy: false,
-      timeout: 10000,
+      timeout: 100000,
       maximumAge: 0
     };
 

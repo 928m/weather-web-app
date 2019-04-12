@@ -29,3 +29,10 @@ export const atmosphereInfoSetting = (nitrogen, ozone, pm10, pm25) => {
     pm25
   };
 };
+
+export const loadingStateSetting = (loadingState) => {
+  return {
+    type: 'LOADING_STATE_SETTING',
+    loadingState
+  };
+};
