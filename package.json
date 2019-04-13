@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
     "lodash": "^4.17.11",
     "node-sass": "^4.11.0",
     "react": "^16.8.6",
