@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import AtmosphereList from './AtmosphereList';
 import logo from './images/logo.png';
 import './App.scss';
 
@@ -64,14 +65,7 @@ class App extends Component {
               </section>
               <section className="dust-area">
                 <ul>
-                  {
-                    atmosphere.map((item) => (
-                      <li key={item.name}>
-                        <h3>{item.name}</h3>
-                        <span className="atmosphere-value">{item.value}</span>
-                      </li>
-                    ))
-                  }
+                  <AtmosphereList atmosphereInfos={atmosphere} />
                 </ul>
               </section>
               <footer>
