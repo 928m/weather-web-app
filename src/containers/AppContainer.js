@@ -42,9 +42,9 @@ const mapStateToProps = (state) => {
           value: atmosphere[item]
         };
       default:
-        return;
+        return false;
     }
-  }).sort((current, next) => current.index - next.index);
+  }).sort((itemA, itemB) => itemA.index - itemB.index);
 
   return newState;
 };
@@ -102,7 +102,7 @@ const mapDispatchToProps = (dispatch) => ({
           success(replacePosition);
           break;
         default:
-          break;
+          return false;
       }
     };
 
