@@ -1,5 +1,5 @@
 const initialState = {
-  id: '',
+  id: 0,
   temperature: 0
 };
 

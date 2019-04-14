@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import AtmosphereList from './AtmosphereList';
-import logo from './images/logo.png';
 import './App.scss';
 
+import logo from './images/logo.png';
 import iconCloud from '../components/images/icon-cloud.png';
 import iconMist from '../components/images/icon-mist.png';
 import iconRain from '../components/images/icon-rain.png';
@@ -56,12 +56,12 @@ class App extends Component {
           isLoading
           ? <div className="loading">loading...</div>
           : (<Fragment>
-              <section>
+              <section className="wrapper">
                 <h1>{city}</h1>
                 <img src={icon} alt={weatherType} />
                 <div className="temperature">{temperature}℃</div>
-                <p>{weatherType}</p>
-              <p className="date">{date}</p>
+                <p className="weather-type">{weatherType}</p>
+                <p className="date">{date}</p>
               </section>
               <section className="dust-area">
                 <ul>
