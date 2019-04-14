@@ -19,7 +19,7 @@ const setUp = () => {
     loading: jest.fn(),
     getLocation: jest.fn()
   };
-  const AppComponent = mount(<App {...props} />);
+  const AppComponent = shallow(<App {...props} />);
 
   return {
     props,
@@ -28,7 +28,7 @@ const setUp = () => {
 };
 
 describe('test', () => {
-  it('초기 loading이 아닐때 .wrapper만 있어야 하고 li태그는 없어야한다.', () => {
+  it('초기 loading이 아닐때 wrapper만 있어야 하고 대기정보 리스트는 없어야한다.', () => {
     const { AppComponent } = setUp();
 
     expect(AppComponent.find('.loading').length).toBe(0);
@@ -36,8 +36,9 @@ describe('test', () => {
     expect(AppComponent.find('.dust-area li').length).toBe(0);
   });
 
-  it('loading상태 일때 .loading만 있어야 한다.', () => {
-    const props = {
+  it('loading상태 일때 loading화면이 있어야 한다.', () => {
+    const { AppComponent } = setUp();
+    AppComponent.setProps({
       weather: {
         id: 0,
         temperature: 0
@@ -48,8 +49,7 @@ describe('test', () => {
       isLoading: true,
       loading: jest.fn(),
       getLocation: jest.fn()
-    };
-    const AppComponent = shallow(<App {...props} />);
+    });
 
     expect(AppComponent.find('.loading').length).toBe(1);
     expect(AppComponent.find('.wrapper').length).toBe(0);
@@ -86,7 +86,6 @@ describe('test', () => {
       loading: jest.fn(),
       getLocation: jest.fn()
     };
-
     const AppComponent = mount(<App {...props} />);
 
     expect(AppComponent.find('h1').text()).toBe(props.city);
