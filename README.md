@@ -13,8 +13,8 @@ npm start
 ## Features
 
 - 서울특별시 열린 데이터 광장 실시간 서울 전체 평균 미세먼지 API, OpenWeatherMap 날씨 API를 이용하여 작업하였습니다.
-- viewport를 이용하여 640px기준으로 비율 맞추도록 작업하였습니다.
-- 크로스브라우징 chrome, safari에 맞추어 작업하였습니다.
+- Viewport를 이용하여 640px기준으로 비율 맞추도록 작업하였습니다.
+- 크로스브라우징 Chrome, Safari에 맞추어 작업하였습니다.
 - Jest, Enzyme를 이용하여 컴포넌트 테스트 작성하였습니다.
 
 
