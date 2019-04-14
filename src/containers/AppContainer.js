@@ -102,7 +102,8 @@ const mapDispatchToProps = (dispatch) => ({
           success(replacePosition);
           break;
         default:
-          return false;
+          alert('위치정보를 가져올 수 없어 임시위치로 대체됩니다.');
+          success(replacePosition);
       }
     };
 
