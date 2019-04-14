@@ -19,7 +19,12 @@ class App extends Component {
 
   render() {
     const day = ['일', '월', '화', '수', '목', '금', '토'];
-    const { atmosphere, weather, city, isLoading } = this.props;
+    const { 
+      atmosphere, 
+      weather, 
+      city, 
+      isLoading 
+    } = this.props;
     const { id, temperature } = weather;
     let { date } = this.props;
     let weatherType = '';

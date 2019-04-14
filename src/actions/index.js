@@ -1,6 +1,14 @@
+import {
+  WEATHER_INFO_SETTING,
+  CITY_INFO_SETTING,
+  DATE_INFO_SETTING,
+  ATMOSPHERE_INFO_SETTING,
+  LOADING_STATE_SETTING
+} from './actionTypes';
+
 export const weatherInfoSetting = (temperature, weather) => {
   return {
-    type: 'WEATHER_INFO_SETTING',
+    type: WEATHER_INFO_SETTING,
     temperature,
     weather
   };
@@ -8,21 +16,21 @@ export const weatherInfoSetting = (temperature, weather) => {
 
 export const cityInfoSetting = (city) => {
   return {
-    type: 'CITY_INFO_SETTING',
+    type: CITY_INFO_SETTING,
     city
   };
 };
 
 export const dateInfoSetting = (date) => {
   return {
-    type: 'DATE_INFO_SETTING',
+    type: DATE_INFO_SETTING,
     date
   };
 };
 
 export const atmosphereInfoSetting = (nitrogen, ozone, pm10, pm25) => {
   return {
-    type: 'ATMOSPHERE_INFO_SETTING',
+    type: ATMOSPHERE_INFO_SETTING,
     nitrogen,
     ozone,
     pm10,
@@ -32,7 +40,7 @@ export const atmosphereInfoSetting = (nitrogen, ozone, pm10, pm25) => {
 
 export const loadingStateSetting = (loadingState) => {
   return {
-    type: 'LOADING_STATE_SETTING',
+    type: LOADING_STATE_SETTING,
     loadingState
   };
 };

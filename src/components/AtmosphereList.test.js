@@ -1,7 +1,7 @@
 import React from 'react';
-import AtmosphereList from './AtmosphereList';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import AtmosphereList from './AtmosphereList';
 
 configure({ adapter: new Adapter() });
 

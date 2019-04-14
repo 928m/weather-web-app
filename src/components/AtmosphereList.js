@@ -9,6 +9,6 @@ const AtmosphereList = (props) => {
       <span className="atmosphere-value">{item.value}</span>
     </li>
   ));
-}
+};
 
 export default AtmosphereList;

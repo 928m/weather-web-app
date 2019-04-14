@@ -1,3 +1,5 @@
+import { ATMOSPHERE_INFO_SETTING } from '../actions/actionTypes';
+
 const initialState = {
   ozone: 0,
   pm10: 0,
@@ -15,7 +17,7 @@ const atmosphere = (state = initialState, action) => {
   } = action;
 
   switch (type) {
-    case 'ATMOSPHERE_INFO_SETTING':
+    case ATMOSPHERE_INFO_SETTING:
       return {
         ozone,
         nitrogen,

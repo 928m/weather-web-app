@@ -1,8 +1,10 @@
+import { DATE_INFO_SETTING } from '../actions/actionTypes';
+
 const date = (state = new Date(), action) => {
   const { type, date } = action;
 
-  switch(type) {
-    case 'DATE_INFO_SETTING':
+  switch (type) {
+    case DATE_INFO_SETTING:
       return date;
     default:
       return state;

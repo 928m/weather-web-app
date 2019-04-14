@@ -17,7 +17,10 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "airbnb"
+    ]
   },
   "browserslist": [
     ">0.2%",
@@ -26,10 +29,14 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "react-scripts": "2.1.8",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.17.1",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
     "node-sass": "^4.11.0",
+    "react-scripts": "2.1.8",
     "sass-loader": "^7.1.0"
   }
 }
