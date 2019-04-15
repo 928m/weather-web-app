@@ -10,6 +10,14 @@ npm start
 ```
 
 
+## API KEY 설정
+
+```
+weather: 'SEOUL_DUST_API_KEY', // 서울특별시 열린 데이터 광장 실시간 서울 전체 평균 미세먼지 API KEY
+atmosphere: 'OPEN_WEATHER_MAP_API_KEY' // OpenWeatherMap 날씨 API KEY
+```
+
+
 ## Features
 
 - 서울특별시 열린 데이터 광장 실시간 서울 전체 평균 미세먼지 API, OpenWeatherMap 날씨 API를 이용하여 작업하였습니다.
